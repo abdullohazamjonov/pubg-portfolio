@@ -1,0 +1,3 @@
+import { SectionTitle, PageWrap } from '../components/UI'
+const a=[['🏆','FIRST BLOOD','First successful web project.'],['⚡','FAST BUILDER','Fast and clean development.'],['👑','CONQUEROR','Advanced frontend skills.']]
+export default function Achievements(){return <PageWrap><SectionTitle number="04" title="ACHIEVEMENTS"/><div className="grid md:grid-cols-3 gap-5">{a.map(([icon,title,text])=><div className="achievement-card flex gap-5 p-7 bg-[#0d100f]/90 border border-white/10" key={title}><span className="text-4xl">{icon}</span><div><small className="text-[#f4c430] font-oswald">ACHIEVEMENT</small><h3 className="font-oswald text-xl mt-1">{title}</h3><p className="text-sm text-neutral-400 mt-2">{text}</p></div></div>)}</div></PageWrap>}

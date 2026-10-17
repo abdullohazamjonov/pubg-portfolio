@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --yellow: #f4c430;
+  --yellow-light: #ffd84d;
+  --black: #050707;
+  --green: #71d95b;
+  --border: rgba(255,255,255,.12);
+}
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--black);
+  color: #f2f2f2;
+  font-family: Inter, sans-serif;
+}
+.font-oswald { font-family: Oswald, sans-serif; }
+.site-bg {
+  position: fixed; inset: 0; z-index: -20;
+  background-image: linear-gradient(90deg, rgba(3,5,5,.96), rgba(3,5,5,.70), rgba(3,5,5,.42), rgba(3,5,5,.92)), url('./assets/orqa_fon.png');
+  background-size: cover; background-position: center;
+  filter: saturate(.72);
+}
+.site-overlay {
+  position: fixed; inset: 0; z-index: -19; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,.45), transparent 35%, rgba(0,0,0,.92));
+}
+.scanline {
+  position: fixed; left: 0; right: 0; top: 0; height: 1px; z-index: 100;
+  background: rgba(244,196,48,.28); pointer-events:none;
+  animation: scan 7s linear infinite;
+}
+@keyframes scan { from { transform: translateY(0); } to { transform: translateY(100vh); } }
+.hud-corner { position: fixed; width: 42px; height: 42px; z-index: 80; pointer-events:none; opacity:.45; }
+.hud-corner:before,.hud-corner:after { content:""; position:absolute; background:var(--yellow); }
+.hud-corner:before { width:2px; height:25px; } .hud-corner:after { width:25px; height:2px; }
+.hud-tl{top:92px;left:18px}.hud-tr{top:92px;right:18px;transform:rotate(90deg)}
+.hud-bl{bottom:18px;left:18px;transform:rotate(-90deg)}.hud-br{bottom:18px;right:18px;transform:rotate(180deg)}
+.particle { position:absolute; width:2px; height:2px; background:#f4c430; border-radius:50%; animation:float linear infinite; }
+@keyframes float { from { transform:translateY(0); } to { transform:translateY(-110vh); } }
+.online-dot { box-shadow:0 0 8px var(--green),0 0 20px var(--green); animation:pulse 1.5s infinite; }
+@keyframes pulse { 50% { opacity:.4; transform:scale(.7); } }
+.hero-character img { filter: drop-shadow(0 25px 30px rgba(0,0,0,.9)) drop-shadow(0 0 18px rgba(244,196,48,.2)); }
+.character-glow { background:radial-gradient(circle,rgba(244,196,48,.13),transparent 65%); filter:blur(25px); }
+.clip-hud { clip-path:polygon(0 0,98% 0,100% 25%,100% 75%,98% 100%,0 100%,2% 75%,2% 25%); }
+.section-line { height:1px; background:linear-gradient(90deg,var(--yellow),transparent); }
+.skill-fill { width:var(--skill); }
+.project-card,.skill-card,.profile-card,.achievement-card { transition:transform .3s ease,border-color .3s ease,background .3s ease; }
+.project-card:hover,.skill-card:hover,.achievement-card:hover { transform:translateY(-7px); border-color:rgba(244,196,48,.55); }
+::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-track { background:#050707; } ::-webkit-scrollbar-thumb { background:#51440e; }
